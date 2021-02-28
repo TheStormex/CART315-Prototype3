@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class pinHealth : MonoBehaviour
+public class throwBall : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -11,7 +12,7 @@ public class pinHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         
     }
