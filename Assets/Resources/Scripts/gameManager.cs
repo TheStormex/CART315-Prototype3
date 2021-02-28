@@ -12,9 +12,11 @@ public class gameManager : MonoBehaviour
 
     public int pinsLeft = 8;
     public Text pinsLeftText;
+    public Text infoText;
     static public float powerRating;
     public Slider powerSlider;
-    bool canShoot = false;
+    public Button throwButton;
+    public Image reticle;
 
     // true = up, false = down
     bool powerBarClimb = true;
@@ -26,6 +28,16 @@ public class gameManager : MonoBehaviour
     public Text midBallsText;
     public Text heavyBallsText;
 
+    public GameObject[] ballsList;
+
+
+    // camera angles
+    float yaw = 0.0f;
+    float pitch = 0.0f;
+
+    // what ball is equipped
+    static int whichBall = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +45,9 @@ public class gameManager : MonoBehaviour
         mainCam.enabled = false;
         sideWall.GetComponent<Renderer>().enabled = false;
         powerSlider.gameObject.SetActive(true);
-
+        throwButton.interactable = false;
+        infoText.text = "Sideview (change camera to throw)";
+        reticle.enabled = false;
     }
 
     // Update is called once per frame
@@ -57,10 +71,35 @@ public class gameManager : MonoBehaviour
             }
         }
         powerSlider.value = powerRating;
+
         // amount of balls
         lightBallsText.text = "Light x" + lightBalls.ToString();
         midBallsText.text = "Middle x" + midBalls.ToString();
         heavyBallsText.text = "Heavy x" + heavyBalls.ToString();
+
+        // WASD to move camera
+
+        if (Input.GetKey("w"))
+        {
+            pitch -= 1;
+        }
+        if (Input.GetKey("a"))
+        {
+            yaw -= 1;
+        }
+        if (Input.GetKey("s"))
+        {
+            pitch += 1;
+        }
+        if (Input.GetKey("d"))
+        {
+            yaw += 1;
+        }
+        yaw = Mathf.Clamp(yaw, -30f, 30f);
+        pitch = Mathf.Clamp(pitch, -15f, 15f);
+        mainCam.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+
+
     }
     public void changeCamera()
     {
@@ -69,6 +108,9 @@ public class gameManager : MonoBehaviour
             sideCam.enabled = false;
             mainCam.enabled = true;
             sideWall.GetComponent<Renderer>().enabled = true;
+            throwButton.interactable = true;
+            infoText.text = "Use WASD to control Camera";
+            reticle.enabled = true;
 
         }
         else if (sideCam.enabled == false)
@@ -76,7 +118,17 @@ public class gameManager : MonoBehaviour
             sideCam.enabled = true;
             mainCam.enabled = false;
             sideWall.GetComponent<Renderer>().enabled = false;
-
+            throwButton.interactable = false;
+            infoText.text = "Sideview (change camera to throw)";
+            reticle.enabled = false;
         }
+    }
+    public void chooseBall(int chosen)
+    {
+        whichBall = chosen;
+    }
+    public void throwBall()
+    {
+        // Instantiate
     }
 }
