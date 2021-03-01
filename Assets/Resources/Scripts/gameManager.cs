@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
     public Slider powerSlider;
     public Button throwButton;
     public Image reticle;
+    public Image selectedBall;
 
     // true = up, false = down
     bool powerBarClimb = true;
@@ -27,7 +28,13 @@ public class gameManager : MonoBehaviour
     public Text lightBallsText;
     public Text midBallsText;
     public Text heavyBallsText;
+    public Button lightButton;
+    public Button midButton;
+    public Button heavyButton;
 
+    public GameObject lightBallObject;
+    public GameObject midBallObject;
+    public GameObject heavyBallObject;
     public GameObject[] ballsList;
 
 
@@ -48,6 +55,10 @@ public class gameManager : MonoBehaviour
         throwButton.interactable = false;
         infoText.text = "Sideview (change camera to throw)";
         reticle.enabled = false;
+        ballsList = new GameObject[3];
+        ballsList[0] = lightBallObject;
+        ballsList[1] = midBallObject;
+        ballsList[2] = heavyBallObject;
     }
 
     // Update is called once per frame
@@ -99,7 +110,46 @@ public class gameManager : MonoBehaviour
         pitch = Mathf.Clamp(pitch, -15f, 15f);
         mainCam.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 
+        // enable or disable ball selection button based on if we have any
+        
+        if (lightBalls > 0)
+        {
+            lightButton.interactable = true;
+        } else
+        {
+            lightButton.interactable = false;
+        }
+        if (midBalls > 0)
+        {
+            midButton.interactable = true;
+        }
+        else
+        {
+            midButton.interactable = false;
+        }
+        if (heavyBalls > 0)
+        {
+            heavyButton.interactable = true;
+        }
+        else
+        {
+            heavyButton.interactable = false;
+        }
 
+        // display which ball is selected
+
+        switch (whichBall)
+        {
+            case 0:
+                selectedBall.transform.position = new Vector3(Screen.width / 10, Screen.height / 10, 0);
+                break;
+            case 1:
+                selectedBall.transform.position = new Vector3(Screen.width / 3.3f, Screen.height / 10, 0);
+                break;
+            case 2:
+                selectedBall.transform.position = new Vector3(Screen.width / 2.05f, Screen.height / 10, 0);
+                break;
+        }
     }
     public void changeCamera()
     {
@@ -126,9 +176,35 @@ public class gameManager : MonoBehaviour
     public void chooseBall(int chosen)
     {
         whichBall = chosen;
+
     }
     public void throwBall()
     {
         // Instantiate
+        Vector3 cameraPosition = new Vector3(mainCam.transform.position.x, mainCam.transform.position.y, mainCam.transform.position.z);
+        switch (whichBall)
+        {
+            case 0:
+                if (lightBalls > 0)
+                {
+                    lightBalls--;
+                    GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
+                }
+                break;
+            case 1:
+                if (midBalls > 0)
+                {
+                    midBalls--;
+                    GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
+                }
+                break;
+            case 2:
+                if (heavyBalls > 0)
+                {
+                    heavyBalls--;
+                    GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
+                }
+                break;
+        }
     }
 }
