@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &948258269086128535
+--- !u!1 &5839127771794346749
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 948258269085827589}
-  - component: {fileID: 948258269082970541}
-  - component: {fileID: 948258269083887651}
-  - component: {fileID: 8222821043936791426}
-  - component: {fileID: 139406142792656128}
+  - component: {fileID: 5839127771794573679}
+  - component: {fileID: 5839127771793285831}
+  - component: {fileID: 5839127771792368457}
+  - component: {fileID: 3331828327624900840}
+  - component: {fileID: 6759649326956736106}
+  - component: {fileID: 251550100525518779}
   m_Layer: 0
-  m_Name: Kegel
+  m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &948258269085827589
+--- !u!4 &5839127771794573679
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086128535}
+  m_GameObject: {fileID: 5839127771794346749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.18408, y: 0.18408, z: 0.18408}
   m_Children: []
-  m_Father: {fileID: 948258269085864487}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &948258269082970541
+--- !u!33 &5839127771793285831
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086128535}
+  m_GameObject: {fileID: 5839127771794346749}
   m_Mesh: {fileID: 4300002, guid: 6a14dc0db365944f182482aba11ad830, type: 3}
---- !u!23 &948258269083887651
+--- !u!23 &5839127771792368457
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086128535}
+  m_GameObject: {fileID: 5839127771794346749}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,15 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &8222821043936791426
+--- !u!54 &3331828327624900840
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086128535}
+  m_GameObject: {fileID: 5839127771794346749}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -99,13 +100,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &139406142792656128
+--- !u!136 &6759649326956736106
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086128535}
+  m_GameObject: {fileID: 5839127771794346749}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -113,45 +114,13 @@ CapsuleCollider:
   m_Height: 5.5012693
   m_Direction: 1
   m_Center: {x: 0.00000014901161, y: 2.7506347, z: 0}
---- !u!1 &948258269086141415
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 948258269085864487}
-  - component: {fileID: 948258270041159290}
-  m_Layer: 0
-  m_Name: Kegel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &948258269085864487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086141415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.077, y: -0.473, z: -78.929016}
-  m_LocalScale: {x: 0.17323424, y: 0.17323424, z: 0.17323424}
-  m_Children:
-  - {fileID: 948258269085827589}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &948258270041159290
+--- !u!114 &251550100525518779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948258269086141415}
+  m_GameObject: {fileID: 5839127771794346749}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24800e7097092544190df147f74d61e9, type: 3}

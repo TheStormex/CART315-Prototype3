@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class throwBall : MonoBehaviour
 {
     GameObject mainCamera;
-    bool throwDone = false;
     Vector3 throwDirection;
     float currentPower;
     float timeAlive = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class gameManager : MonoBehaviour
     public Camera sideCam;
     public GameObject sideWall;
 
-    public int pinsLeft = 8;
+    static public int pinsLeft = 8;
     public Text pinsLeftText;
     public Text infoText;
     static public float powerRating;
@@ -22,9 +23,9 @@ public class gameManager : MonoBehaviour
     // true = up, false = down
     bool powerBarClimb = true;
 
-    int lightBalls = 2;
-    int midBalls = 2;
-    int heavyBalls = 2;
+    static public int lightBalls = 2;
+    static public int midBalls = 2;
+    static public int heavyBalls = 2;
     public Text lightBallsText;
     public Text midBallsText;
     public Text heavyBallsText;
@@ -45,6 +46,13 @@ public class gameManager : MonoBehaviour
     // what ball is equipped
     static int whichBall = 0;
 
+    // last ball thrown
+    bool lastBallThrown = false;
+
+    // how many balls on the field
+    GameObject[] ballsOnField;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +63,7 @@ public class gameManager : MonoBehaviour
         throwButton.interactable = false;
         infoText.text = "Sideview (change camera to throw)";
         reticle.enabled = false;
+        lastBallThrown = false;
         ballsList = new GameObject[3];
         ballsList[0] = lightBallObject;
         ballsList[1] = midBallObject;
@@ -64,6 +73,10 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // find all balls
+        ballsOnField = GameObject.FindGameObjectsWithTag("ball");
+
+        // display UI
         pinsLeftText.text = "Pins Left: " + pinsLeft;
         if (powerBarClimb)
         {
@@ -106,8 +119,8 @@ public class gameManager : MonoBehaviour
         {
             yaw += 1;
         }
-        yaw = Mathf.Clamp(yaw, -30f, 30f);
-        pitch = Mathf.Clamp(pitch, -15f, 15f);
+        yaw = Mathf.Clamp(yaw, -50f, 50f);
+        pitch = Mathf.Clamp(pitch, -30f, 30f);
         mainCam.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 
         // enable or disable ball selection button based on if we have any
@@ -149,6 +162,24 @@ public class gameManager : MonoBehaviour
             case 2:
                 selectedBall.transform.position = new Vector3(Screen.width / 2.05f, Screen.height / 10, 0);
                 break;
+        }
+
+        // check if run out of balls, then lose
+
+        Debug.Log(ballsOnField.Length);
+        if (lightBalls <= 0 && midBalls <= 0 && heavyBalls <= 0)
+        {
+            lastBallThrown = true;
+            Debug.Log("lastball");
+        }
+        if (lastBallThrown == true)
+        {
+
+            if (ballsOnField.Length <= 0)
+            {
+                winGame = false;
+                SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
+            }
         }
     }
     public void changeCamera()
