@@ -29,4 +29,12 @@ public class throwBall : MonoBehaviour
           Destroy(this.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        // if touch borders, destroy it
+        if (collision.gameObject.tag == "border")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

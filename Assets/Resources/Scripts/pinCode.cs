@@ -21,6 +21,11 @@ public class pinCode : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        // if touch borders destroy it
+        if (collision.gameObject.tag == "border")
+        {
+            Destroy(this.gameObject);
+        }
         if (collision.relativeVelocity.magnitude > 2)
         {
 
