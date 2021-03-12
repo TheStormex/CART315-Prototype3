@@ -16,6 +16,7 @@ public class gameManager : MonoBehaviour
     public Text infoText;
     static public float powerRating;
     public Slider powerSlider;
+    public Text throwingPowerText;
     public Button throwButton;
     public Image reticle;
     public Image selectedBall;
@@ -32,6 +33,9 @@ public class gameManager : MonoBehaviour
     public Button lightButton;
     public Button midButton;
     public Button heavyButton;
+    public Button chancgeCameraButton;
+    public Text clickInfoText;
+    public Text controlInfoText;
 
     public GameObject lightBallObject;
     public GameObject midBallObject;
@@ -78,6 +82,7 @@ public class gameManager : MonoBehaviour
 
         // display UI
         pinsLeftText.text = "Pins Left: " + pinsLeft;
+        pinsLeftText.transform.position = new Vector3(Screen.width / 7, Screen.height - Screen.height / 12, 0);
         if (powerBarClimb)
         {
             powerRating = powerRating + 0.03f;
@@ -95,11 +100,16 @@ public class gameManager : MonoBehaviour
             }
         }
         powerSlider.value = powerRating;
+        powerSlider.transform.position = new Vector3(Screen.width - Screen.width / 8, Screen.height / 4, 0);
+        throwButton.transform.position = new Vector3(Screen.width - Screen.width / 3, Screen.height / 5, 0);
 
         // amount of balls
         lightBallsText.text = "Light x" + lightBalls.ToString();
+        lightBallsText.transform.position = new Vector3(Screen.width / 10, Screen.height / 10, 0);
         midBallsText.text = "Middle x" + midBalls.ToString();
+        midBallsText.transform.position = new Vector3(Screen.width / 3.3f, Screen.height / 10, 0);
         heavyBallsText.text = "Heavy x" + heavyBalls.ToString();
+        heavyBallsText.transform.position = new Vector3(Screen.width / 2.05f, Screen.height / 10, 0);
 
         // WASD to move camera
 

@@ -3147,6 +3147,7 @@ MonoBehaviour:
   pinsLeftText: {fileID: 1720634993}
   infoText: {fileID: 1125003217}
   powerSlider: {fileID: 1867479708}
+  throwingPowerText: {fileID: 1282423655}
   throwButton: {fileID: 466538464}
   reticle: {fileID: 517490934}
   selectedBall: {fileID: 458423846}
@@ -3156,6 +3157,9 @@ MonoBehaviour:
   lightButton: {fileID: 342274966}
   midButton: {fileID: 363920546}
   heavyButton: {fileID: 1421124620}
+  chancgeCameraButton: {fileID: 41969746}
+  clickInfoText: {fileID: 1751089316}
+  controlInfoText: {fileID: 1125003217}
   lightBallObject: {fileID: 3302995232771354586, guid: ef470717367814743af47c8afb6eb299, type: 3}
   midBallObject: {fileID: 4725007896231606386, guid: 0a41718ecd4df2941913968c325cc572, type: 3}
   heavyBallObject: {fileID: 8812919593461826132, guid: 2326328c30bf24a43a9a0a7b2a0d76b3, type: 3}
