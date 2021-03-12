@@ -24,9 +24,9 @@ public class gameManager : MonoBehaviour
     // true = up, false = down
     bool powerBarClimb = true;
 
-    static public int lightBalls = 2;
-    static public int midBalls = 2;
-    static public int heavyBalls = 2;
+    static public int lightBalls = 3;
+    static public int midBalls = 4;
+    static public int heavyBalls = 3;
     public Text lightBallsText;
     public Text midBallsText;
     public Text heavyBallsText;
