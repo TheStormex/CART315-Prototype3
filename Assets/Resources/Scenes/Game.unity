@@ -3157,7 +3157,7 @@ MonoBehaviour:
   lightButton: {fileID: 342274966}
   midButton: {fileID: 363920546}
   heavyButton: {fileID: 1421124620}
-  chancgeCameraButton: {fileID: 41969746}
+  changeCameraButton: {fileID: 41969746}
   clickInfoText: {fileID: 1751089316}
   controlInfoText: {fileID: 1125003217}
   lightBallObject: {fileID: 3302995232771354586, guid: ef470717367814743af47c8afb6eb299, type: 3}

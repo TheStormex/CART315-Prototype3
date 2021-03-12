@@ -33,7 +33,7 @@ public class gameManager : MonoBehaviour
     public Button lightButton;
     public Button midButton;
     public Button heavyButton;
-    public Button chancgeCameraButton;
+    public Button changeCameraButton;
     public Text clickInfoText;
     public Text controlInfoText;
 
@@ -102,7 +102,9 @@ public class gameManager : MonoBehaviour
         powerSlider.value = powerRating;
         powerSlider.transform.position = new Vector3(Screen.width - Screen.width / 8, Screen.height / 4, 0);
         throwButton.transform.position = new Vector3(Screen.width - Screen.width / 3, Screen.height / 5, 0);
-
+        infoText.transform.position = new Vector3(Screen.width - Screen.width / 3.5f, Screen.height - Screen.height / 7, 0);
+        clickInfoText.transform.position = new Vector3(Screen.width / 4, Screen.height / 50, 0);
+        changeCameraButton.transform.position = new Vector3(Screen.width - Screen.width / 8, Screen.height / 10, 0);
         // amount of balls
         lightBallsText.text = "Light x" + lightBalls.ToString();
         lightBallsText.transform.position = new Vector3(Screen.width / 10, Screen.height / 10, 0);
