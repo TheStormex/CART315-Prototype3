@@ -178,11 +178,9 @@ public class gameManager : MonoBehaviour
 
         // check if run out of balls, then lose
 
-        Debug.Log(ballsOnField.Length);
         if (lightBalls <= 0 && midBalls <= 0 && heavyBalls <= 0)
         {
             lastBallThrown = true;
-            Debug.Log("lastball");
         }
         if (lastBallThrown == true)
         {

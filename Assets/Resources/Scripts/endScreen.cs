@@ -30,9 +30,9 @@ public class endScreen : MonoBehaviour
     public void replayGame()
     {
         gameManager.pinsLeft = 8;
-        gameManager.heavyBalls = 2;
-        gameManager.midBalls = 2;
-        gameManager.lightBalls = 2;
+        gameManager.heavyBalls = 3;
+        gameManager.midBalls = 4;
+        gameManager.lightBalls = 3;
         SceneManager.LoadSceneAsync("Resources/Scenes/Game", LoadSceneMode.Single);
     }
 }
