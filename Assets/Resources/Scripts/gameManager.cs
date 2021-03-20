@@ -115,21 +115,24 @@ public class gameManager : MonoBehaviour
 
         // WASD to move camera
 
-        if (Input.GetKey("w"))
+        if (sideCam.enabled == false)
         {
-            pitch -= 1;
-        }
-        if (Input.GetKey("a"))
-        {
-            yaw -= 1;
-        }
-        if (Input.GetKey("s"))
-        {
-            pitch += 1;
-        }
-        if (Input.GetKey("d"))
-        {
-            yaw += 1;
+            if (Input.GetKey("w"))
+            {
+                pitch -= 1;
+            }
+            if (Input.GetKey("a"))
+            {
+                yaw -= 1;
+            }
+            if (Input.GetKey("s"))
+            {
+                pitch += 1;
+            }
+            if (Input.GetKey("d"))
+            {
+                yaw += 1;
+            }
         }
         yaw = Mathf.Clamp(yaw, -50f, 50f);
         pitch = Mathf.Clamp(pitch, -30f, 30f);

@@ -24,7 +24,7 @@ public class pinCode : MonoBehaviour
         // if touch borders destroy it
         if (collision.gameObject.tag == "border")
         {
-            Destroy(this.gameObject);
+            RemovePin();
         }
         if (collision.relativeVelocity.magnitude > 2)
         {
@@ -35,14 +35,17 @@ public class pinCode : MonoBehaviour
 
         if (pinHealth <= 0)
         {
-            Destroy(this.gameObject);
-            gameManager.pinsLeft--;
-            if (gameManager.pinsLeft <= 0)
-            {
-                gameManager.winGame = true;
-                SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
-            }
-
+            RemovePin();
+        }
+    }
+    void RemovePin()
+    {
+        Destroy(this.gameObject);
+        gameManager.pinsLeft--;
+        if (gameManager.pinsLeft <= 0)
+        {
+            gameManager.winGame = true;
+            SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
         }
     }
 }
